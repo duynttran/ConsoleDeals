@@ -12,9 +12,9 @@ async function scrape(){
     search_text = reformatSearch(search_text);
     loading_element.style.display = "block"; //Display loading element
     let results = [];
-    results[0] = await initiateAmazonScrape(search_text);
-    results[1] = await initiateGamestopScrape(search_text);
-    results[2] = await initiateWalmartScrape(search_text);
+    results.push(await initiateAmazonScrape(search_text));
+    results.push(await initiateGamestopScrape(search_text));
+    results.push(await initiateWalmartScrape(search_text));
     populateTable(results);
     loading_element.style.display = "none"; //Hide loading element
 }
