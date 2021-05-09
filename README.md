@@ -30,6 +30,8 @@ Utilizes Python, Javascript, HTML, CSS, Mechanize, BeautifulSoup4, and Flask.
 3. Run flask server via terminal command:
 
     > flask run
+   
+   NOTE: You should be in the same directory as app.py
 
 4. CTRL + Left Click resulting URL in console or navigate to:
 
