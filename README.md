@@ -1,7 +1,8 @@
 # Console Deals
-Restructuring of Playstation-deals (https://github.com/duynttran/playstation-deals) to be rewritten in Python and expanded in search functionality.
+Console Deals is a webpage where you can search for a specific video game across multiple vendor sites and have their associated price and hyperlink delivered to you in a single location, saving you money when you purchase new games for your console!
 
-Utilizes Python, Javascript, HTML, CSS, Mechanize, BeautifulSoup4, and Flask.
+Restructuring of Playstation-deals (https://github.com/duynttran/playstation-deals) rewritten in Python and expanded in search functionality.
+Uses Python, Javascript, HTML, CSS, Mechanize, BeautifulSoup4, and Flask.
 
 ![image](https://user-images.githubusercontent.com/65418762/117588722-51bfd500-b0f3-11eb-91cf-c41ef7faad81.png)
 
