@@ -13,6 +13,7 @@ async function scrape(){
     loading_element.style.display = "block"; //Display loading element
     let results = [];
     results[0] = await initiateAmazonScrape(search_text);
+    results[1] = await initiateGamestopScrape(search_text);
     populateTable(results);
     loading_element.style.display = "none"; //Hide loading element
 }
@@ -20,7 +21,7 @@ async function scrape(){
 // Reformats search to be more specific and match console
 function reformatSearch(search_text){
     let console_type = document.getElementById("type_select").value;
-    let search = search_text + " " + console_type + " game";
+    let search = search_text + " " + console_type;
     return search;
 }
 
@@ -40,6 +41,17 @@ async function initiateAmazonScrape(search_text){
         return {"Vendor":"Amazon", "Price":"~", "Link":"~"};
     }
     return reformatData(data, "Amazon");
+}
+
+// Invokes Gamestop backend scraping
+async function initiateGamestopScrape(search_text){
+    let data = await fetch(BASEURL + "/gamestop?term=" + search_text);
+    try {
+        data = await data.json();
+    } catch (e) {
+        return {"Vendor":"Gamestop", "Price":"~", "Link":"~"};
+    }
+    return reformatData(data, "Gamestop");
 }
 
 // Populates the results table with given array of objects formatted
