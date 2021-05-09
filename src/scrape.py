@@ -38,3 +38,22 @@ def scrape_gamestop(search_term):
      # Return price and link dict
     price_link = {"price":price.strip(), "link":first_result}
     return price_link
+
+def scrape_walmart(search_term):
+    '''Performs a search on Walmart given a search term and returns 
+    the price of the first item along with a link'''
+    # Input search
+    browser.open("https://www.walmart.com")
+    browser.select_form(id="global-search-form")
+    browser["query"] = search_term
+    result_page = browser.submit()
+    # Get first result price and then open first result
+    soup = BeautifulSoup(result_page, "html.parser")
+    first_tile_soup = soup.find(attrs={"class":"tile-aside"})
+    first_tile_soup = first_tile_soup.find(attrs={"class":"price"})
+    price = first_tile_soup.find(attrs={"class":"visuallyhidden"}).text
+    first_result = "https://www.walmart.com" + soup.find(attrs={"class":"product-title-link"})["href"]
+    browser.open(first_result)
+     # Return price and link dict
+    price_link = {"price":price, "link":first_result}
+    return price_link
