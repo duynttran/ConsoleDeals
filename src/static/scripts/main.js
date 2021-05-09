@@ -1,10 +1,11 @@
-const BASEURL = "http://127.0.0.1:5000";
-
+// Hide loading indicator upon landing and setup search button
 let loading_element = document.getElementById("loading");
 loading_element.style.display = "none";
 let search_button_element = document.getElementById("search_button");
 search_button_element.addEventListener("click", scrape);
+const BASEURL = "http://127.0.0.1:5000";
 
+// Initiates price scrape when search button is clicked
 async function scrape(){
     let search_text = document.getElementById("search_input").value;
     if(search_text.length == 0) return;
@@ -15,6 +16,7 @@ async function scrape(){
     loading_element.style.display = "none";
 }
 
+// Invokes Amazon backend scraping and reformats return data
 async function initiateAmazonScrape(search_text){
     let data = await fetch(BASEURL + "/amazon?term=" + search_text);
     try {
@@ -28,6 +30,8 @@ async function initiateAmazonScrape(search_text){
     return data;
 }
 
+// Populates the results table with given array of objects formatted
+// with properties Vendor, Price, and Link
 function populateTable(results){
     let current_table = document.getElementById("price_links");
     let new_table = document.createElement('tbody');
