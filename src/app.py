@@ -19,7 +19,7 @@ def gamestop_price_link():
     return jsonify(data)
 
 @app.route("/walmart", methods=['GET'])
-def gamestop_price_link():
+def walmart_price_link():
     search_term = request.args.get('term', default='', type=str)
     data = scrape_walmart(search_term)
     return jsonify(data)
