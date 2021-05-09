@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <title>Console Deals</title>
-    <link rel="stylesheet" type= "text/css" href="./static/stylesheets/main.css">
+    <link rel="stylesheet" type= "text/css" href="./static/stylesheets/main.css?q=3">
+    <script src='./static/scripts/main.js?q=3'></script>
 </head>
 <body>
+    <img class="logo" src="./static/images/controllerSmall.png" alt="image of controller"> 
     <div class="search_field">
         <select id="type_select">
             <option value="ps4">PS4</option>
@@ -13,7 +15,7 @@
             <option value="seriesx">SERIES X</option>
         </select>
         <input type="text" id="search_input" placeholder="Console game name..."/>
-        <input type="button" id="search_button" value="SEARCH">
+        <input type="button" id="search_button" value="SEARCH" onclick=scrape()>
     </div>
     <div class="result_field">
         <table class="result_table">

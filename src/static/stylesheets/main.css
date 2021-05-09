@@ -2,12 +2,17 @@ body{
     background-color:rgb(30, 30, 40);
 }
 
+img.logo{
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 div.search_field{
     max-width:435px;
     display:flex;
     margin-left:auto;
     margin-right:auto;
-    margin-top:5%;
     background-color:blue;
 }
 
@@ -41,7 +46,7 @@ input#search_button{
 
 div.result_field{
     max-width:500px;
-    background-color:silver;
+    background-color:rgb(211, 184, 117);
     margin-left:auto;
     margin-right:auto;
     margin-top:1%;
