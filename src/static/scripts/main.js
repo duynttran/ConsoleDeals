@@ -14,6 +14,7 @@ async function scrape(){
     let results = [];
     results[0] = await initiateAmazonScrape(search_text);
     results[1] = await initiateGamestopScrape(search_text);
+    results[2] = await initiateWalmartScrape(search_text);
     populateTable(results);
     loading_element.style.display = "none"; //Hide loading element
 }
@@ -52,6 +53,17 @@ async function initiateGamestopScrape(search_text){
         return {"Vendor":"Gamestop", "Price":"~", "Link":"~"};
     }
     return reformatData(data, "Gamestop");
+}
+
+// Invokes Walmart backend scraping
+async function initiateWalmartScrape(search_text){
+    let data = await fetch(BASEURL + "/walmart?term=" + search_text);
+    try {
+        data = await data.json();
+    } catch (e) {
+        return {"Vendor":"Walmart", "Price":"~", "Link":"~"};
+    }
+    return reformatData(data, "Walmart");
 }
 
 // Populates the results table with given array of objects formatted

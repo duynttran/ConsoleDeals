@@ -1,4 +1,4 @@
-from scrape import scrape_amazon, scrape_gamestop
+from scrape import *
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
@@ -16,4 +16,10 @@ def amazon_price_link():
 def gamestop_price_link():
     search_term = request.args.get('term', default='', type=str)
     data = scrape_gamestop(search_term)
+    return jsonify(data)
+
+@app.route("/walmart", methods=['GET'])
+def walmart_price_link():
+    search_term = request.args.get('term', default='', type=str)
+    data = scrape_walmart(search_term)
     return jsonify(data)
