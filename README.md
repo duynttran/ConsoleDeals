@@ -1,6 +1,6 @@
 # Console Deals
 Restructuring of Playstation-deals (https://github.com/duynttran/playstation-deals) to be rewritten in Python and expanded in search functionality.
-Expected to support PS4, PS5, XBOXONE, and XBOX SERIES X game searches across multiple vendor sites.
+Intended to support PS4, PS5, XBOXONE, and XBOX SERIES X game searches across multiple vendor sites.
 
 Utilizes Python, Javascript, HTML, CSS, Mechanize, BeautifulSoup4, and Flask.
 
