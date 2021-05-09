@@ -20,7 +20,7 @@ async function scrape(){
 // Reformats search to be more specific and match console
 function reformatSearch(search_text){
     let console_type = document.getElementById("type_select").value;
-    let search = search_text + " " + console_type + " game";
+    let search = search_text + " " + console_type;
     return search;
 }
 
